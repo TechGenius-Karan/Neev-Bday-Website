@@ -12,10 +12,12 @@ h1 {
     margin: 50px;
     text-align: left;
     align-content: left;
+    font-size: 40px;
+    transition: transform 1.5s;
 }
 
 h1:hover {
-    animation: zoom-in-zoom-out 2s forwards;
+    transform: scale(1.5);
 }
 
 #game-container {
@@ -152,4 +154,69 @@ button {
     transform: scale(1, 1);
     rotate: 0deg;
   }
+}
+
+
+
+
+
+
+/* Section3 style */
+
+
+
+.section3 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr)); /* Adjust the min and max width as needed */
+  gap: 20px; /* Adjust the gap between boxes */
+}
+
+.message-box {
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 12px;
+  width: fit-content;
+  max-width: 300px; /* Adjust the maximum width as needed */
+  background-color: lightgoldenrodyellow; /* Customize the background color */
+  color: navy; /* Customize the text color */
+  font-family: Arial, sans-serif; /* Customize the font family */
+  font-size: 16px; /* Customize the font size */
+  transition: transform 0.5s;
+}
+
+.message-box:hover {
+  transform: scale(1.05);
+}
+
+.message {
+  /* Additional styling for messages */
+  /* You can customize the styling for each message here */
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Use align-items to vertically center the content */
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#demo {
+  font-size: 48px; /* Increase the font size to make it larger */
+  color: navy; /* Customize the text color */
+  font-weight: bold; /* Add bold font-weight */
+}
+
+p {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 0px;
+}
+
+.announce {
+    margin-top: 80px;
+    color: rebeccapurple;
+    letter-spacing:2px;
+    text-transform: uppercase;
 }
