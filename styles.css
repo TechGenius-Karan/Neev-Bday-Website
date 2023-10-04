@@ -166,9 +166,10 @@ button {
 
 
 .section3 {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(200px, 1fr)); /* Adjust the min and max width as needed */
-  gap: 20px; /* Adjust the gap between boxes */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
 }
 
 .message-box {
@@ -176,22 +177,26 @@ button {
   padding: 10px;
   border: 2px solid black;
   border-radius: 12px;
-  width: fit-content;
   max-width: 300px; /* Adjust the maximum width as needed */
   background-color: lightgoldenrodyellow; /* Customize the background color */
   color: navy; /* Customize the text color */
   font-family: Arial, sans-serif; /* Customize the font family */
   font-size: 16px; /* Customize the font size */
   transition: transform 0.5s;
+  text-align: center;
+  line-height: 1.5; /* Adjust line height for better text spacing */
+  flex: 1; /* Distribute available space evenly in the row */
+  min-width: 200px; /* Set a minimum width to prevent very narrow boxes */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .message-box:hover {
   transform: scale(1.05);
-}
-
-.message {
-  /* Additional styling for messages */
-  /* You can customize the styling for each message here */
+  font-weight: 500;
+  font-size: 17px;
 }
 
 .countdown {

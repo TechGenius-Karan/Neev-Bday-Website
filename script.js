@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function() {
 // Variables
 const playButton = document.getElementById("play-button");
 const playAgainButton = document.getElementById("playAgainButton");
@@ -21,6 +22,7 @@ let computerScore = 0;
 
 let gameInterval;
 
+document.addEventListener("mousemove", movePlayerPaddle);
 // Start the game
 playButton.addEventListener("click", startGame);
 
@@ -246,3 +248,5 @@ var x = setInterval(function() {
   }
   
 }, 1000);
+
+});
