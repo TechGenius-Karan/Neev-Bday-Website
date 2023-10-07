@@ -208,20 +208,14 @@ button {
 }
 
 #demo {
-  font-size: 48px; /* Increase the font size to make it larger */
-  color: navy; /* Customize the text color */
-  font-weight: bold; /* Add bold font-weight */
-}
-
-p {
-  text-align: center;
-  font-size: 60px;
-  margin-top: 0px;
-}
-
-.announce {
+    font-size: 60px; /* Increase the font size to make it larger */
+    font-weight: bold; /* Add bold font-weight */
     margin-top: 80px;
     color: rebeccapurple;
     letter-spacing:2px;
     text-transform: uppercase;
-}
+    }
+
+
+
+

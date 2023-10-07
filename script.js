@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+
 // Variables
 const playButton = document.getElementById("play-button");
 const playAgainButton = document.getElementById("playAgainButton");
@@ -211,42 +211,53 @@ h1.addEventListener('animationend', removeAnimationClass, { once: true });
 //Countdown Timer
 
 
-// Set the date we're counting down to
-var countDownDate = new Date("Oct 5, 2023").getTime();
-var birthdayReached = false;
+// Function to update the countdown timer
+function updateCountdown() {
+    // Set the date of your friend's birthday (Month is 0-based, so October is 9)
+    const birthday = new Date(new Date().getFullYear(), 9, 5); // Change the date and month
 
-// Update the count down every 1 second
-var x = setInterval(function() {
-  // Get today's date and time
-  var now = new Date().getTime();
-  
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+    // Get the current date and time
+    const now = new Date();
 
-  if (distance <= 0) {
-    if (!birthdayReached) {
-      // Display "Happy Birthday" when the countdown date is reached
-      document.getElementById("demo").innerHTML = "Happy Birthday Neev!!";
-      birthdayReached = true;
-      setTimeout(function() {
-        // Reset to the countdown when the day is over
-        birthdayReached = false;
-        countDownDate = new Date("Oct 5, 2024").getTime();
-      }, 24 * 60 * 60 * 1000); // Reset after 24 hours
+    // Check if today is your friend's birthday
+    if (now.getDate() === birthday.getDate() && now.getMonth() === birthday.getMonth()) {
+        // Today is the birthday, display "Happy Birthday"
+        document.getElementById("demo").innerHTML = "Happy Birthday!";
+    } else {
+        // Calculate the time remaining until the birthday
+        let timeUntilBirthday = birthday - now;
+
+        // Check if the birthday has passed for this year
+        if (timeUntilBirthday < 0) {
+            // Calculate the time remaining until the next year's birthday
+            birthday.setFullYear(birthday.getFullYear() + 1);
+            timeUntilBirthday = birthday - now;
+        }
+
+        // Calculate days, hours, minutes, and seconds
+        const days = Math.floor(timeUntilBirthday / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeUntilBirthday % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeUntilBirthday % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeUntilBirthday % (1000 * 60)) / 1000);
+
+        // Display the countdown
+        const countdownElement = document.getElementById("demo");
+        const countdownString = `${days} days ${hours} hr ${minutes} min ${seconds} sec until Birthday`;
+        countdownElement.innerHTML = countdownString;
     }
-  } else {
-    // Time calculations for months, days, hours, minutes, and seconds
-    var months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30));
-    var days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+}
 
-    // Output the result in an element with id="demo"
-    document.getElementById("demo").innerHTML = months + "m " + days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
-  }
-  
-}, 1000);
+// Update the countdown every second
+setInterval(updateCountdown, 1000);
 
-});
+// Initial call to set up the countdown
+updateCountdown();
+
+
+
+
+
+
+
+
+
